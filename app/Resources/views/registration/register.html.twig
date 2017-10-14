@@ -1,0 +1,43 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div ng-controller="RegCtrl" layout="column" ng-cloak class="md-inline-form">
+            <md-content layout-padding >
+                <form action="/register" method="post" id="register-form">
+                    {{ form_errors(form) }}
+                    {{ form_row(form._token) }}
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Username</label>
+                            <input id="user_username" name="user[username]">
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Email</label>
+                            <input type="email" id="user_email" name="user[email]">
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Password</label>
+                            <input id="user_plainPassword_first" type="password" name="user[plainPassword][first]">
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Repeat Password</label>
+                            <input id="user_plainPassword_second" type="password" name="user[plainPassword][second]">
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-sm="row">
+                        <md-button type="submit" class="md-raised md-primary">Register</md-button>
+                    </div>
+                </form>
+            </md-content>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+
+        <div ng-controller="LoginCtrl" layout="column" ng-cloak class="md-inline-form">
+
+              <md-content layout-padding >
+                <div>
+                  <form action="{{ path('login') }}" method="post" id="login-form">
+                    {% if error %}
+                        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    <div layout-gt-sm="row">
+                      <md-input-container class="md-block" flex-gt-sm>
+                        <label>Username</label>
+                        <input id="username" name="_username">
+                      </md-input-container>
+                    </div>
+                    <div layout-gt-sm="row">
+                      <md-input-container class="md-block" flex-gt-sm>
+                        <label>Password</label>
+                        <input id="password" type="password" name="_password">
+                      </md-input-container>
+
+                    </div>
+                    <div layout-gt-sm="row">
+                        <md-button type="submit" class="md-raised md-primary">Login</md-button>
+                    </div>
+                  </form>
+                </div>
+              </md-content>
+
+        </div>
+    </div>
+
+{% endblock %}

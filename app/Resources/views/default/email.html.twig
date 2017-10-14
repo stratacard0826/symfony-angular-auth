@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div class="container">
+            <div ng-controller="EmailCtrl" layout="column" ng-cloak class="md-inline-form">
+              <md-content layout-padding >
+                <div>
+                  <form method="post" name="emailForm" id="email-form">
+                    <div ng-show="show_success" class="alert alert-success animate-show animate-hide" >Your email was updated to {[{user.email}]}</div>
+                    <div layout-gt-sm="row">
+                      <md-input-container class="md-block" flex-gt-sm>
+                        <label>Email</label>
+                        <input type="email" id="email" name="email" ng-model="user.email"  />
+                        <div ng-messages="emailForm.email.$error" role="alert">
+                          <div ng-message='email'>
+                            Invalid email format.
+                          </div>
+                        </div>
+                      </md-input-container>
+                    </div>
+                    <div layout-gt-sm="row">
+                        <md-button class="md-raised md-primary" ng-click="updateEmail()">Change Email</md-button>
+                    </div>
+                  </form>
+                </div>
+              </md-content>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
